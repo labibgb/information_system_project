@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Crow</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+
+  </head>
+
+  <body style="background-image: url('image/1.jpg'); background-repeat: no-repeat;background-color: black;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">  <img class="img-logo" src="image/Logo.png" alt=""></a><h1 style="color:skyblue; font-family: Comic Sans MS;">CROW </h1> <br> <p><sub style="color:white;"> Stay Clean</sub></p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">About Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" id ="login" style="display:none">
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="profile.html" id ="profile" style="display:none">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.html" id ="logout" style="display:none">
+            </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <br>
+    <br>
+    <br>
+    <div class="container shadow-sm p-3 mb-5 bg-white rounded" >
+
+      <div class="row">
+
+        <div class="col-lg-3">
+
+          <h4 class="my-4">My Account</h4>
+          <div class="list-group">
+            <a href="profile.html" class="list-group-item">My Info</a>
+            <a href="order.html" class="list-group-item active">My Order</a>
+            <a href="payment.html" class="list-group-item">Payment</a>
+            <a href="report.html" class="list-group-item">Report</a>
+          </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9 col-md-4 mb-4">
+            <div class="media">
+                <div class="media-body">
+                    <div class="container jumbotron">
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <label for="plan" class="mb-2 mr-sm-2"><b>Select Plan: </b></label>
+                        <select class="form-control mb-2 mr-sm-2" id="plan">
+                            <option value="Daily"> Daily </option>
+                            <option value="Monthly"> Monthly </option>
+                            <option value="Emergency"> Emergency </option>
+                          </select>
+                      </div>
+                      <button type="submit" class="btn btn-outline-primary mb-2" id="submit"><b>Submit</b></button>
+                    </form>
+                    <p style="color:red">For <b>Daily</b> service, You need to pay 6.00tk. <br>For <b>Monthly</b> service, You need to pay 108.00tk. <br> For <b>Emergency</b> service, You need to pay 20.00tk.</p>
+                    <h5 id="confirm"></h5>
+                    <form id="emergency">
+                      <div class="form-group">
+                          <label for="plan" class="mb-2 mr-sm-2"><b>Location: </b></label>
+                          <input type="text" class="form-control mb-2 mr-sm-2" id="location" placeholder="Location">
+                          <label for="plan" class="mb-2 mr-sm-2"><b>Date: </b></label>
+                          <input type="date" class="form-control mb-2 mr-sm-2" id="date" placeholder="DD/MM/YY">
+                          <label for="plan" class="mb-2 mr-sm-2"><b>Time: </b></label>
+                          <input type="time" class="form-control mb-2 mr-sm-2" id="time" placeholder="HH:MM">
+                          <br>
+                          <label for="plan" class="mb-2 mr-sm-2"><b>Contact: </b></label>
+                          <input type="text" class="form-control mb-2 mr-sm-2" id="phone" placeholder="01XXXXXXXXX">
+                      </div>
+                      <button type="submit" class="btn btn-outline-primary mb-2" id="order"><b>Order</b></button>
+                    </form>
+                    </div>
+                </div>
+              </div>
+              <div class="media">
+                  <div class="media-body">
+                      <div class="container jumbotron">
+                          <h5>YOUR ORDER LIST AND STATUS</h5>
+                          <br>
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Order Id</th>
+                            <th>Plan</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                      </div>
+                  </div>
+                </div>
+
+        </div>
+        
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <div style="height: 200px;"></div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="image/Logo.png" alt="Logo">
+              <br>
+              <p style="color:white; font-family: 'Courier New', Courier, monospace">A web based cleaning companey.</p>
+            </div>
+            <div class="col-lg-3">
+              </div>
+              <div class="col-lg-3">
+                   <i class="fas fa-landmark" aria-hidden="true" style="color:white;"></i> <p style="color:white;">House-115, Rd no. 7, Block- D, Dhaka 1213</p>
+                   <i class="fas fa-phone" aria-hidden="true" style="color:white;"></i> <p style="color:white;">162472</p>
+                   <i class="fas fa-at" aria-hidden="true" style="color:white;"></i> <p style="color:white;">crow_stay_clean@gmail.com</p>
+                </div>
+          </div>        
+        </div>
+        <!-- /.container -->
+      </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        var user = JSON.parse(localStorage.getItem('user') );
+        console.log(user);
+        function date()
+        {
+          var d = new Date();
+          var day = d.getDate();
+          var mnt = d.getMonth();
+          var yer = d.getFullYear();
+          mnt++;
+          return String(day)+'/'+String(mnt)+'/'+String(yer);
+        }
+        if( user == null )
+        {
+          $("#login").show();
+          $("#login").html("Login");
+          window.location.href = "login.html";
+        }
+        else
+        {
+          var x = date();
+          console.log( x );
+          $("#profile").show();
+          $("#profile").append("<i class='far fa-user' style='font-size:16px'></i>"+user.name);
+          $("#logout").show();
+          $("#logout").append("<i class='fas fa-sign-out-alt' style='font-size:16px'></i>Logout");
+          $("#emergency").hide();
+          $.ajax({
+
+                    url : 'getorder.php?phpCall={"id":'+user.id+'}',
+
+                    success : function( response )
+                    {
+                      obj = JSON.parse( response );
+                      console.log( obj.length );
+                      $("#emergency").hide();
+
+                      for( var i = 0 ; i < obj.length ; i++ )
+                      {
+                        var str = "";
+                        str += '<tr>';
+                        for( var j = 0 ; j < obj[ i ].length ; j++ )
+                        {
+                          if( j == 3 ){
+                            if( obj[ i ][ j ] == "Pending" )
+                            {
+                              str += '<td><b style="color:red;">';
+                              str += obj[ i ][ j ];
+                              str += '</b></td>';
+  
+                            }
+                            else{
+                              str += '<td><b style="color:green;">';
+                              str += obj[ i ][ j ];
+                              str += '</b></td>';
+                            }
+                          }
+                          else{
+                            str += '<td><b>';
+                            str += obj[ i ][ j ];
+                            str += '</b></td>';
+                          }
+                        }
+                        str += '</tr>';
+                        //console.log( str );
+                        $('tbody').append( str );
+                      }
+
+                    },
+                    error : function( a , b , c )
+                    {
+                      console.log( b );
+                    },
+                    
+                    complete : function(){}
+          });
+          $("#submit").click(function(e){
+
+            $("#emergency").hide();
+
+              e.preventDefault();
+
+              var pln = $("#plan").val();
+              
+              if( pln == 'Emergency' )
+              {
+
+                $("#emergency").show();
+
+                $("#order").click( function(e){
+
+                  e.preventDefault();
+
+                  var obj = {
+
+                    id : user.id,
+                    plan : pln,
+                    location : $("#location").val(),
+                    date : $("#date").val(),
+                    time : $("#time").val(),
+                    phone : $("#phone").val()
+                  };
+                  
+
+                  $.ajax({
+
+                    url : 'order.php?phpCall='+JSON.stringify(obj),
+
+                    success : function( response )
+                    {
+                      obj = JSON.parse(response);
+                      console.log(obj);
+                      $("#emergency").hide();
+                      alert("Order placement.We will contact with you.");
+                      window.location.href='order.html';
+                    },
+                    error : function( a , b , c )
+                    {
+                      console.log( b );
+                    },
+                    
+                    complete : function(){}
+                  });
+
+                });
+              }
+              else
+              {
+                var obj = {
+
+                    id : user.id,
+                    plan : pln,
+                    location : String(user.street+', '+user.city+', '+user.state),
+                    date : date(),
+                    time : null,
+                    phone : null
+                };
+                console.log( obj );
+                $.ajax({
+
+                      url : 'order.php?phpCall='+JSON.stringify(obj),
+
+                      success : function( response )
+                      {
+                        obj = JSON.parse(response);
+                        console.log(obj);
+                        $("#emergency").hide();
+                        $('h5').html("Order placement.We will contact with you as soon as possible.");
+                      },
+                      error : function( a , b , c )
+                      {
+                        console.log( b );
+                      },
+
+                      complete : function(){}
+                });
+              }
+          });
+          
+        }
+      });
+    </script>
+
+  </body>
+
+</html>

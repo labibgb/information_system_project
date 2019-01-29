@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Crow</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+
+  </head>
+
+  <body style="background-image: url('image/1.jpg'); background-repeat: no-repeat;background-color: black;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">  <img class="img-logo" src="image/Logo.png" alt=""></a><h1 style="color:skyblue; font-family: Comic Sans MS;">CROW </h1> <br> <p><sub style="color:white;"> Stay Clean</sub></p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">About Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Contact Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" id ="login" style="display:none">
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="profile.html" id ="profile" style="display:none">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.html" id ="logout" style="display:none">
+            </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <br>
+    <br>
+    <br>
+    <div class="container shadow-sm p-3 mb-5 bg-white rounded">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+
+          <h4 class="my-4">My Account</h4>
+          <div class="list-group">
+            <a href="profile.html" class="list-group-item">My Info</a>
+            <a href="order.html" class="list-group-item">My Order</a>
+            <a href="payment.html" class="list-group-item">Payment</a>
+            <a href="report.html" class="list-group-item active">Report</a>
+          </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9 col-md-4 mb-4">
+            <div class="media">
+                <div class="media-body">
+                  <div class="container jumbotron"></div>
+
+                </div>
+              </div>
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <div style="height: 1000px;"></div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="image/Logo.png" alt="Logo">
+              <br>
+              <p style="color:white; font-family: 'Courier New', Courier, monospace">A web based cleaning companey.</p>
+            </div>
+            <div class="col-lg-3">
+              </div>
+              <div class="col-lg-3">
+                   <i class="fas fa-landmark" aria-hidden="true" style="color:white;"></i> <p style="color:white;">House-115, Rd no. 7, Block- D, Dhaka 1213</p>
+                   <i class="fas fa-phone" aria-hidden="true" style="color:white;"></i> <p style="color:white;">162472</p>
+                   <i class="fas fa-at" aria-hidden="true" style="color:white;"></i> <p style="color:white;">crow_stay_clean@gmail.com</p>
+                </div>
+          </div>        
+        </div>
+        <!-- /.container -->
+      </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        var user = JSON.parse(localStorage.getItem('user') );
+        console.log(user);
+        if( user == null )
+        {
+          $("#login").show();
+          $("#logout").html("Login");
+          window.location.href = "login.html";
+        }
+        else
+        {
+
+          $("#profile").show();
+          $("#profile").append("<i class='far fa-user' style='font-size:16px'></i>"+user.name);
+          $("#logout").show();
+          $("#logout").append("<i class='fas fa-sign-out-alt' style='font-size:16px'></i>Logout");
+          $("#name").val(user.name);
+          $("#email").val(user.email);
+          $("#street").val(user.street);
+          $("#state").val(user.state);
+          $("#city").val(user.city);
+          $("#zip").val(user.zip);
+          $("#newpassword").val(),
+          $("#confirmpassword").val()
+
+
+          $("#update").click(function(e){
+
+            console.log(e);
+            e.preventDefault();
+
+            var obj = {
+              id : user.id,
+              firstname : $("#name").val(),
+              email : $("#email").val(),
+              street : $("#street").val(),
+              state : $("#state").val(),
+              city : $("#city").val(),
+              zip : $("#zip").val(),
+              oldpassword : $("#password").val(),
+              newpassword : $("#newpassword").val(),
+              confirmpassword : $("#confirmpassword").val()
+
+            };
+
+            console.log(obj)
+
+          //  if( String(user.newpass) == String(obj.oldpassword) )
+            //{
+              console.log("come");
+              /*
+              asis? hu
+              ei 2 value same houar por o dhuktese na kn jani if er moddhe..o
+              call dei? na
+              */
+              //if( obj.newpassword == obj.confirmpassword )
+              //{
+                $.ajax({
+
+                  url : 'update.php?phpCall='+JSON.stringify(obj),
+
+                  success : function(response)
+                  {
+                    alert("<b>To see your update info login again </b>")
+                  },
+                  error : function( a , b , c )
+                  {
+                    console.log( b );
+                  },
+
+                  complete : function(){}
+
+                });
+              //}
+              //else{
+                //alert("Passdword dosen't match.Try again!");
+             // }
+            //}
+            //else{
+              
+              //alert("Invalid Password.");
+            //}
+          });
+        }
+      });
+    </script>
+
+  </body>
+
+</html>

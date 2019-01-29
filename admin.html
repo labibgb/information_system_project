@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
+
+  </head>
+
+  <body style="background-image: url('image/1.jpg'); background-repeat: no-repeat;background-color: black;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">  <img class="img-logo" src="image/Logo.png" alt=""></a><h1 style="color:skyblue; font-family: Comic Sans MS;">CROW </h1> <br> <p><sub style="color:white;"> Stay Clean</sub></p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a href="" class="nav-link"id ="logout" style="display:none">
+            </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <br>
+    <br>
+    <br>
+    <div class="container">
+
+      <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4" id="beforelogin"></div>
+          <div class="col-lg-4 col-md-6 mb-4 shadow-sm p-3 mb-5 bg-white rounded" id="beforelogin1">
+
+              <h1>Admin Login</h1>
+    
+              <form action="">
+    
+                <div class="form-group">
+    
+                  <label for="user"><b>Username : </b></label>
+                  <input type="text" class="form-control" id="user" placeholder="Username" required>
+    
+                </div>
+    
+                <div class="form-group">
+    
+                   <label for="pass"><b>Password : </b></label>
+                   <input type="password" class="form-control" id="pass" placeholder="Password" required>
+    
+                </div>
+                <div class="form-group" id="errormessage" style="display:none" >
+                    <label style="color:red"></label>
+                </div>
+    
+    
+                <button type="submit" class="btn btn-outline-primary" id="login"><b>Login</b></button>
+    
+              </form>
+    
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" id="beforelogin2"></div>
+        <!--After login-->
+        <!-- /.col-lg-3 -->
+        <!-- /.col-lg-9 -->
+        <!--After login-->
+
+        
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+    <div style="height: 1000px;"></div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="image/Logo.png" alt="Logo">
+              <br>
+              <p style="color:white; font-family: 'Courier New', Courier, monospace">A web based cleaning companey.</p>
+            </div>
+            <div class="col-lg-3">
+              </div>
+              <div class="col-lg-3">
+                   <i class="fas fa-landmark" aria-hidden="true" style="color:white;"></i> <p style="color:white;">House-115, Rd no. 7, Block- D, Dhaka 1213</p>
+                   <i class="fas fa-phone" aria-hidden="true" style="color:white;"></i> <p style="color:white;">162472</p>
+                   <i class="fas fa-at" aria-hidden="true" style="color:white;"></i> <p style="color:white;">crow_stay_clean@gmail.com</p>
+                </div>
+          </div>        
+        </div>
+        <!-- /.container -->
+      </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        var admin = localStorage.getItem('admin');
+        $("#login").click( function(e){
+
+          e.preventDefault();
+            var obj = {
+                  user : $("#user").val(),
+                  pass : $("#pass").val()
+            };
+            $.ajax({
+
+              url : 'admin.php?phpCall='+JSON.stringify(obj),
+
+              success : function( response ){
+
+                console.log( response );
+                if( response == "1" )
+                {
+                  $("#logout").show();
+                  $("#logout").append("<i class='fas fa-arrow-circle-right' style='font-size:16px'></i>Logout");
+                  localStorage.setItem('admin', '1' );
+                  window.location.href='usertable.html';
+                }
+                else{
+                    $("#errormessage").show();
+							      $("#errormessage label").html('Invalid login approach');
+                }
+              },
+              error : function( a , b , c )
+              {
+                console.log( b );
+              },
+              complete : function(){} 
+            });
+        });
+      });
+
+    </script>
+
+  </body>
+
+</html>
